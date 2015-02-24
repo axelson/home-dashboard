@@ -6,7 +6,8 @@ console.log("Hello World")
 app.get '/', (req, res) ->
   res.send('Hello World!!!')
 
-server = app.listen 3002, ->
+# Listen for incoming requests and serve them.
+server = app.listen process.env.PORT || 3002, ->
   host = server.address().address
   port = server.address().port
 
