@@ -11,7 +11,7 @@ app.set('views', './views')
 app.set('view engine', 'jade')
 
 app.get '/', (req, res) ->
-  res.render('index', title: 'Hey', message: 'There!')
+  res.render('index', title: 'Jashboard', message: 'There!')
 
 app.use(express.static(path.join(__dirname, 'public')));
 

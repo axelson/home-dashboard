@@ -2,8 +2,6 @@ extends layout
 
 block content
   h1= title
-  p Welcome to my page
-  // Wrapper
   #connectLink Connect!
   .row
     .col-md-4
@@ -13,13 +11,11 @@ block content
       h2 Boards
       ul#boards
     .col-md-4
-      p Other stuff
 
 block footer
   script#card(type='text/html')
     li.bg-info
-      p url: {{url}}
-      p text: {{name}}
+      a(href='{{url}}') {{name}}
 
   script#board(type='text/html')
     li.bg-info
