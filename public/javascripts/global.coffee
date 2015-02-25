@@ -4,10 +4,6 @@ $ ->
     interactive:false,
     success: onAuthorize
 
-  #Trello.authorize
-  #  type: "popup"
-  #  success: onAuthorize
-
   $("#connectLink").click ->
     Trello.authorize
       type: "popup"

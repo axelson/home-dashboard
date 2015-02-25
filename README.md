@@ -16,3 +16,10 @@ Built as a node.js (io.js?) single-page app. No database in MVP.
 
 Uses webhooks to watch list: https://trello.com/docs/gettingstarted/webhooks.html
 Uses websockets on Heroku (https://devcenter.heroku.com/articles/websockets) to receive notifications
+
+# Running
+supervisor app.coffee
+gulp sass
+
+# TODO:
+- Learn to run `gulp sass` and watch for file-system changes

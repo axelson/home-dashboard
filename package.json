@@ -19,10 +19,15 @@
   },
   "homepage": "https://github.com/axelson/home-dashboard",
   "dependencies": {
+    "bootstrap": "^3.3.2",
     "coffee-middleware": "^0.2.1",
     "coffee-script": "^1.9.1",
     "express": "^4.12.0",
     "express-coffee": "0.0.9",
     "jade": "^1.9.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-sass": "^1.3.3"
   }
 }
