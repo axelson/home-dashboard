@@ -23,3 +23,4 @@ gulp sass
 
 # TODO:
 - Learn to run `gulp sass` and watch for file-system changes
+- Can include unread count for gmail?
