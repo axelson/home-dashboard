@@ -1,5 +1,7 @@
+Q.longStackSupport = true
+
 # Note sure what the responsiblities of this class should be
-class Jashboard
+class Connect
   constructor: ->
     @authorize()
 
@@ -15,33 +17,63 @@ class Jashboard
 
   onAuthorize: =>
     $('#connectLink').hide()
-    @getBoards()
+    jashboard = new Jashboard()
+    jashboard.display()
 
-  getBoards: ->
-    $content = $('#cards').empty()
-    $boardsContainer = $('#boards')
-    Trello.members.get 'me', (member) ->
-      $cards = $('<div>').text('Loading Cards...').appendTo($content)
-      $boards = $('<div>').text('Loading Boards...').appendTo($boardsContainer)
 
-      # TODO: store this in a promise
-      Trello.get 'members/me/boards', (boards) ->
-        $boards.empty()
-        for board in boards
-          html = ich.board(board)
-          $boards.append(html)
+class Jashboard
+  # Requires Trello to already be authorized
+  constructor: ->
 
-        board = _.find(boards, (board) -> board.name == 'TODO')
+  # Display the dashboard
+  display: ->
+    @getIncomingList().done (incomingList) =>
+      @displayCards(incomingList)
+    @displayBoards()
 
-        Trello.get "boards/#{board.id}/lists", (lists) ->
-          list = lists.filter( (list) -> list.name == 'Incoming!' )[0]
+  displayBoards: ->
+    $boards= $('#boards')
+    @getBoards().done (boards) ->
+      $boards.empty()
+      for board in boards
+        html = ich.board(board)
+        $boards.append(html)
 
-          Trello.get "lists/#{list.id}/cards", (cards) ->
-            $cards.empty()
-            for card in cards
-              html = ich.card(card)
-              $cards.append(html)
+  displayCards: (list) ->
+    $cards = $('#cards')
+    @getListCards(list.id).then( (cards) ->
+      $cards.empty()
+      for card in cards
+        html = ich.card(card)
+        $cards.append(html)
+    ).done()
+
+  getIncomingList: ->
+    deferred = Q.defer()
+    @getBoards().then( (boards) =>
+      todoBoard = _.find(boards, (board) -> board.name == 'TODO')
+      @getBoardLists(todoBoard.id).then( (lists) ->
+        incomingList = _.find(lists, (list) -> list.name == 'Incoming!')
+        deferred.resolve(incomingList)
+      ).done()
+    ).done()
+
+    deferred.promise
+
+  getBoards: _.memoize ->
+    @getMember().then( (member) ->
+      Q(Trello.get 'members/me/boards')
+    )
+
+  getMember: _.memoize ->
+    Q(Trello.members.get 'me')
+
+  getBoardLists: _.memoize (boardId) ->
+    Q(Trello.get "boards/#{boardId}/lists")
+
+  getListCards: _.memoize (listId) ->
+    Q(Trello.get "lists/#{listId}/cards")
+
 
 $ ->
-  jashboard = new Jashboard()
-  console.log "created jashboard"
+  connect = new Connect()

@@ -27,7 +27,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: [{
-          src: [bower + 'lodash/lodash.js', bower + 'icanhazjs/ICanHaz.js'],
+          src: [bower + 'lodash/lodash.js', bower + 'icanhazjs/ICanHaz.js', bower + 'q/q.js'],
           dest: compiled_assets + 'vendor.js',
         },
         {
