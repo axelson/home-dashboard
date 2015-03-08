@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
   var raw_assets = 'assets/';
   var compiled_assets = 'public/assets/';
+  var bower = 'bower_components/';
 
   // Project configuration.
   grunt.initConfig({
@@ -26,7 +27,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: [{
-          src: [raw_assets + 'javascripts/vendor/lodash.js', raw_assets + 'javascripts/vendor/ICanHaz.js'],
+          src: [bower + 'lodash/lodash.js', bower + 'icanhazjs/ICanHaz.js'],
           dest: compiled_assets + 'vendor.js',
         },
         {

@@ -1,0 +1,22 @@
+{
+  "name": "home-dashboard",
+  "version": "0.0.0",
+  "homepage": "https://github.com/axelson/home-dashboard",
+  "authors": [
+    "Jason Axelson <jason.axelson@gmail.com>"
+  ],
+  "license": "See LICENSE file",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "q": "1.1.2",
+    "lodash": "~3.4.0",
+    "icanhaz": "~0.10.3"
+  }
+}
