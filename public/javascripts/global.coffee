@@ -23,8 +23,7 @@ onAuthorize = ->
         html = ich.board(board)
         $boards.append(html)
 
-      # TODO: extract into method
-      board = boards.filter( (board) -> board.name == 'TODO')[0]
+      board = _.find(boards, (board) -> board.name == 'TODO')
 
       Trello.get "boards/#{board.id}/lists", (lists) ->
         list = lists.filter( (list) -> list.name == 'Incoming!' )[0]
