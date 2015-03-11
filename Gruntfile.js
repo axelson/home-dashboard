@@ -21,20 +21,17 @@ module.exports = function(grunt) {
       },
     },
 
-    concat: {
-      options: {
-        separator: ';',
-      },
+    rig: {
       dist: {
         files: [{
-          src: [bower + 'lodash/lodash.js', bower + 'icanhazjs/ICanHaz.js', bower + 'q/q.js'],
+          src: [raw_assets + 'javascripts/vendor.js'],
           dest: compiled_assets + 'vendor.js',
         },
         {
-          src: [compiled_assets + 'coffee/global.js'],
-          dest: compiled_assets + 'global.js'
+          src: [raw_assets + 'javascripts/global.coffee'],
+          dest: compiled_assets + 'global.js',
         }],
-      }
+      },
     },
 
     uglify: {
@@ -77,12 +74,12 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-rigger');
 
-  grunt.registerTask('build', ['coffee', 'sass', 'concat']);
+  grunt.registerTask('build', ['coffee', 'sass', 'rig']);
   grunt.registerTask('prod', ['build', 'uglify']);
   grunt.registerTask('default', ['build']);
 
