@@ -28,8 +28,8 @@ module.exports = function(grunt) {
           dest: compiled_assets + 'vendor.js',
         },
         {
-          src: [raw_assets + 'javascripts/global.coffee'],
-          dest: compiled_assets + 'global.js',
+          src: [raw_assets + 'javascripts/application.js'],
+          dest: compiled_assets + 'application.js',
         }],
       },
     },
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['assets/**/*.js', 'assets/**/*.coffee', 'assets/**/*.scss'],
+        files: ['app/**/*.js', 'app/**/*.coffee', 'assets/**/*.js', 'assets/**/*.coffee', 'assets/**/*.scss'],
         tasks: ['build'],
         options: {
           spawn: false,

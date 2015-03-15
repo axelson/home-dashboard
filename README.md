@@ -23,3 +23,9 @@ gulp sass
 
 # TODO:
 - Can include unread count for gmail?
+- Use grunt buildpack to deploy to prod: https://github.com/mbuchetics/heroku-buildpack-nodejs-grunt
+- Switch to bluebird promise library: https://github.com/petkaantonov/bluebird/
+- Use websockets/webhooks
+    - Trello: https://trello.com/docs/gettingstarted/webhooks.html
+    - Trello: https://trello.com/docs/gettingstarted/index.html#watching-models-with-webhooks
+    - Heroku: https://devcenter.heroku.com/articles/websockets

@@ -17,6 +17,7 @@
   "dependencies": {
     "q": "1.1.2",
     "lodash": "~3.4.0",
-    "icanhaz": "~0.10.3"
+    "icanhaz": "~0.10.3",
+    "angular": "~1.3.14"
   }
 }

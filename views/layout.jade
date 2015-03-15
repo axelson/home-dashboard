@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app='jashboard')
     head
         title= title
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
@@ -10,5 +10,5 @@ html
         block footer
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
         script(src='/assets/vendor.js')
-        script(src='/assets/global.js')
         script(src='https://api.trello.com/1/client.js?key=574bc861c79610e922b508b12e6d0f7c')
+        script(src='/assets/application.js')

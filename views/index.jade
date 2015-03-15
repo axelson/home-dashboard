@@ -4,13 +4,17 @@ block content
   h1= title
   #connectLink Connect!
   .row
-    .col-md-4
+    .col-md-4(ng-controller='DashboardCtrl')
       h2 Incoming!
       ul#cards
         p Loading Cards...
-    .col-md-4
+    .col-md-4(ng-controller='QuotesCtrl')
       h2 Quote of the day
       div#quote-of-the-day
+      ul#quotes(ng-cloak)
+        li(ng-repeat="quote in quotes")
+          .quote
+            a(href='{{::quote.url}}', target='_blank') {{quote.name}}
 
     .col-md-4
       h2 Boards
