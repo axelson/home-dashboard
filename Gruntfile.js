@@ -30,6 +30,10 @@ module.exports = function(grunt) {
         {
           src: [raw_assets + 'javascripts/application.js'],
           dest: compiled_assets + 'application.js',
+        },
+        {
+          src: [raw_assets + 'stylesheets/vendor.css'],
+          dest: compiled_assets + 'vendor.css',
         }],
       },
     },
@@ -52,7 +56,7 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['app/**/*.js', 'app/**/*.coffee', 'assets/**/*.js', 'assets/**/*.coffee', 'assets/**/*.scss'],
+        files: ['app/**/*.js', 'app/**/*.coffee', 'assets/**/*.js', 'assets/**/*.coffee', 'assets/**/*.scss', 'app/**/*.html'],
         tasks: ['build'],
         options: {
           spawn: false,

@@ -1,1 +1,6 @@
-<a ng-click="connect()">Connect Trello Now!</a>
+<div ng-show="!authorized">
+  <a ng-click="connect()">Connect Trello Now!</a>
+</div>
+<div ng-show="authorized">
+  <main-dashboard></main-dashboard>
+</div>

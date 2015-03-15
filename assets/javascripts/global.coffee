@@ -32,7 +32,7 @@ class Jashboard
     @displayBoards()
 
   displayBoards: ->
-    $boards= $('#boards')
+    $boards = $('#boards')
     @getBoards().done (boards) ->
       $boards.empty()
       for board in boards

@@ -1,6 +1,7 @@
 //= ../../app/app.js
-//= ../../app/CardCtrl.coffee
 //= ../../app/QuoteCtrl.coffee
-//= ../../app/trello.service.js
+//= ../../app/trello.service.coffee
 //= ../../app/trelloConnect/
+//= ../../app/cards/
+//= ../../app/mainDashboard.directive.js
 //= global.coffee
