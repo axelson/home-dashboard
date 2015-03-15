@@ -1,4 +1,4 @@
-angular.module('jashboard').controller('QuotesCtrl', ['$scope', ($scope) ->
+angular.module('jashboard').controller('QuoteCtrl', ['$scope', ($scope) ->
   $scope.quotes = [
     {url: 'http://test.com', name: 'one'}
     {url: 'http://test.com', name: 'two'}

@@ -71,6 +71,16 @@ module.exports = function(grunt) {
         }],
       },
     },
+
+    ngtemplates: {
+      jashboard: {
+        src: 'app/**/*.html',
+        dest: compiled_assets + 'templates.js',
+        options: {
+          prefix: '/'
+        },
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -78,8 +88,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-rigger');
+  grunt.loadNpmTasks('grunt-angular-templates');
 
-  grunt.registerTask('build', ['coffee', 'sass', 'rig']);
+  grunt.registerTask('build', ['coffee', 'sass', 'ngtemplates', 'rig']);
   grunt.registerTask('prod', ['build', 'uglify']);
   grunt.registerTask('default', ['build']);
 

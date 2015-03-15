@@ -2,13 +2,13 @@ extends layout
 
 block content
   h1= title
-  #connectLink Connect!
+  trello-connect
   .row
-    .col-md-4(ng-controller='DashboardCtrl')
+    .col-md-4(ng-controller='CardCtrl')
       h2 Incoming!
       ul#cards
         p Loading Cards...
-    .col-md-4(ng-controller='QuotesCtrl')
+    .col-md-4(ng-controller='QuoteCtrl')
       h2 Quote of the day
       div#quote-of-the-day
       ul#quotes(ng-cloak)
