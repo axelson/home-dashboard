@@ -1,6 +1,8 @@
 <md-content>
   <h1>Cards</h1>
   <md-card layout-padding ng-repeat="card in cards">
-    <a href='{{card.url}}', target='_blank'>{{card.name}}</a>
+    <a href ng-click="show($event, card)">
+      {{card.name}}
+    </a>
   </md-card>
 </md-content>

@@ -1,1 +1,1 @@
-angular.module('jashboard', []);
+angular.module('jashboard', ['ngMaterial']);

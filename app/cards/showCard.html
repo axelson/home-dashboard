@@ -1,0 +1,17 @@
+<md-dialog class="show-card" flex="40">
+  <md-content layout="columns">
+    <div>
+      {{card.name}}
+    </div>
+    <div flex>
+    </div>
+    <div>
+      <a href="{{card.url}}" target="_blank">
+        <i class="fa fa-external-link"></i>
+      </a>
+    </div>
+  </md-content>
+  <md-content ng-show="card.description">
+    {{card.description}}
+  </md-content>
+</md-dialog>
