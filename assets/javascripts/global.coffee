@@ -76,4 +76,4 @@ class Jashboard
 
 
 $ ->
-  connect = new Connect()
+  #connect = new Connect()
