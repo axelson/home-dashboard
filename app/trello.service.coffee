@@ -3,19 +3,6 @@ angular.module('jashboard').factory('trello', ->
 )
 
 class MyTrello
-  # TODO, replace with getList('TODO', 'Incoming!')
-  getIncomingList: ->
-    deferred = Q.defer()
-    @getBoards().then( (boards) =>
-      todoBoard = _.find(boards, (board) -> board.name == 'TODO')
-      @getBoardLists(todoBoard.id).then( (lists) ->
-        incomingList = _.find(lists, (list) -> list.name == 'Incoming!')
-        deferred.resolve(incomingList)
-      ).done()
-    ).done()
-
-    deferred.promise
-
   getBoards: _.memoize ->
     @getMember().then( (member) ->
       Q(Trello.get 'members/me/boards')
