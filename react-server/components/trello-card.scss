@@ -1,0 +1,11 @@
+@import "../styles/variables.scss";
+
+.trello-card {
+  padding: 8px;
+  background-color: $gray;
+  // I don't know if the margin belongs here
+  margin: 4px;
+  border-radius: 8px;
+  max-width: 200px;
+  word-wrap: break-word;
+}

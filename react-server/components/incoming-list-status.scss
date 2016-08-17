@@ -1,0 +1,20 @@
+@import "../styles/variables.scss";
+
+.incoming-list-status {
+  color: white;
+  display: inline-block;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.incoming-list-status.good {
+  background-color: $green;
+}
+
+.incoming-list-status.warning {
+  background-color: $yellow;
+}
+
+.incoming-list-status.danger {
+  background-color: $red;
+}

@@ -3,12 +3,14 @@
   "host": "localhost",
   "port": 3000,
   "js-port": 3001,
-  "hot": false,
+  "hot": true,
   "minify": false,
-  "long-term-caching": false,
-  "compile-only": false,
+  "longTermCaching": false,
+  "compileOnly": false,
   "https": false,
-  "log-level": "debug",
+  "logLevel": "info",
+  "timingLogLevel": "warning",
+  "gaugeLogLevel": "no",
   "env": {
     "staging": {
       "port": "4000"
