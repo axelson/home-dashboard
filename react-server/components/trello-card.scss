@@ -2,10 +2,14 @@
 
 .trello-card {
   padding: 8px;
-  background-color: $gray;
+  background-color: $silver;
   // I don't know if the margin belongs here
-  margin: 4px;
+  margin: 4px 0;
   border-radius: 8px;
   max-width: 200px;
   word-wrap: break-word;
+  a {
+    color: black;
+    text-decoration: none;
+  }
 }

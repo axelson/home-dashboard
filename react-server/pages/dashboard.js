@@ -1,7 +1,11 @@
 import React from 'react';
 import {RootContainer, RootElement, TheFold, logging} from 'react-server';
 
-import {TODO_LIST_ID} from '../services/constants'
+import {
+  INCOMING_LIST_ID,
+  TODO_LIST_ID,
+  TYPOGRAPHY_CSS,
+} from '../services/constants'
 import {fetchCards} from '../services/trello'
 
 import Header from '../components/common/Header.jsx';
@@ -16,9 +20,19 @@ export default class SimplePage {
     ]
   }
 
+  getHeadStylesheets() {
+    return [
+      TYPOGRAPHY_CSS,
+    ]
+  }
+
   handleRoute(next) {
-    this.data = fetchCards(TODO_LIST_ID)
-    .then(cards => { return { cards }})
+    const incomingCardsPr = fetchCards(INCOMING_LIST_ID)
+    const todoCardsPr = fetchCards(TODO_LIST_ID)
+    this.data = Promise.all([incomingCardsPr, todoCardsPr])
+    .then(data => {
+      return {incomingCards: data[0], todoCards: data[1]}
+    })
 
     return next();
   }

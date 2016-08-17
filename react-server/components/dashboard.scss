@@ -1,9 +1,13 @@
 @import "../styles/variables.scss";
 
-.dashboard-header {
-  color: $fuchsia;
+.dashboard {
 }
 
-.other-header {
-  color: purple;
+.dashboard-body {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard-column {
+  margin-right: 12px;
 }

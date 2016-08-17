@@ -8,7 +8,7 @@ export function fetchLists () {
 }
 
 export function fetchCards (idList) {
-  return queryTrello(`/lists/${idList}/cards`, {queryParameters: {fields: 'name,desc'}})
+  return queryTrello(`/lists/${idList}/cards`, {queryParameters: {fields: 'name,desc,shortLink'}})
   .then(resp => resp.body )
 }
 
@@ -22,4 +22,8 @@ function queryTrello (route, options = {}) {
   return ReactServerAgent
   .get(baseUrl + route)
   .query({...defaultQueryParameters, ...queryParameters})
+}
+
+export function shortLink (card) {
+  return `https://trello.com/c/${card.shortLink}`
 }

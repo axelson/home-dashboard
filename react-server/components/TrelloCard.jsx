@@ -1,5 +1,7 @@
 import React, {PropTypes} from 'react';
 
+import {shortLink} from '../services/trello'
+
 import './trello-card.scss'
 
 export default class TrelloCard extends React.Component {
@@ -8,7 +10,9 @@ export default class TrelloCard extends React.Component {
 
     return (
       <div className='trello-card'>
-        {trelloCard.name}
+        <a href={shortLink(trelloCard)} target='_blank'>
+          {trelloCard.name}
+        </a>
       </div>
     )
   }
